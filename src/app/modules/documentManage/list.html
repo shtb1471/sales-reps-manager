@@ -1,0 +1,94 @@
+<div class="row">
+    <h4>
+        <strong>
+            &nbsp;&nbsp;
+            <i class="fa fa-home"></i>
+        </strong>主页 / 销售文档
+    </h4>
+</div>
+<div class="wrapper wrapper-content">
+    <div class="ibox">
+        <div class="ibox-content query-box">
+            <div class="row">
+                <div class="col-md-2 col-xs-2">
+                    <p>
+                        <a class="sale-manage-title" href="javascript:void(0)" ng-click="List.editDocument()">
+                            <i class="fa fa-file"></i>
+                            新建
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <hr class="removeMargain"/>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-md-nonepadding">
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <span class="form-control">文档名称</span>
+                        </div>
+                        <input type="text" class="form-control" ng-model="List.query.fileName" ng-blur="List.queryFn()" placeholder="文档名称">
+                    </div>
+                </div>
+                <!-- </div>
+            <div class="row">
+                &nbsp;
+            </div>
+            <div class="row"> -->
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <div>
+                        <button class="btn btn-sm btn-primary" ng-click="List.queryFn()">
+                            <i class="fa fa-search"></i>&nbsp;查&nbsp;询</button>
+                        <!-- <button class="btn btn-sm btn-white" ng-click="List.onRefresh()">
+                            <i class="fa fa-refresh"></i>&nbsp;刷&nbsp;新</button> -->
+                    </div>
+                </div>
+            </div>
+            <br/>
+        </div>
+    </div>
+    <form class="form-inline gr-form-table ibox-content">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="table-first-coloum" ng-if="List._canSelect">
+                        <span>
+                            <input xx-check type="checkbox" xx-model="List._checkedAll" xx-change="List.selectAllRow">
+                        </span>
+                    </th>
+                    <th class="table-index-coloum">#</th>
+                    <th ng-repeat="hitem in List.colsDefined">{{hitem.name}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-if="!List.listDatas.data.length">
+                    <td colspan="100">
+                        <div class="grid-nodata">
+                            <h2>没有符合条件的数据</h2>
+                        </div>
+                    </td>
+                </tr>
+                <tr ng-repeat="lDatas in List.listDatas.data track by $index" ng-click="List.rowSelect(lDatas,$event)" ng-class="{warning: lDatas._checked}">
+                    <td class="table-first-coloum" ng-if="List._canSelect">
+                        <span>
+                            <input xx-check type="checkbox" ng-model="lDatas._checked" xx-model="lDatas._checked">
+                        </span>
+                    </td>
+                    <td class="table-index-coloum">
+                        {{$index+1}}
+                    </td>
+                    <td ng-repeat="hitem in List.colsDefined track by $index" ng-if="hitem.field">
+                        <span>{{lDatas[hitem.field]}}</span>
+                    </td>
+                    <td class="grid-opt-btn table-last-coloum">
+                        <span ng-if="!hitem.field" class="grid-opt-btn">
+                            <a ng-show="{{!lDatas['status']}}" class="grid-opt-btn" ng-href="{{lDatas['fileUrl']}}" target="_blank">
+                                下载
+                            </a>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div page="List.query.page" total="List.listDatas.totalpage" total-records="List.listDatas.total" on-page-change="List.queryFn" entity-unit="条" entity-name="记录" gr-pagination></div>
+    </form>
+</div>

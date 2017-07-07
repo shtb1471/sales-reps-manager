@@ -1,0 +1,44 @@
+<div class="row" style="padding: 0px 10px;">
+    <div class="col-lg-2 col-md-2 col-sm-2">
+        <label class="form-control-static">共{{vm.total}}页&nbsp;/&nbsp;{{vm.totalRecords}}{{vm.entityUnit}}{{vm.entityName}}</label>
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-10">
+        <div style="float:right;">
+            <div class="btn-group btn-group-sm">
+                <button class="btn btn-white" ng-class="{disabled: vm.isFirstPage()}" type="button" ng-click="vm.selectPage(1)">
+                    <i class="fa fa-chevron-left"></i>
+                    <i class="fa fa-chevron-left" style="height: 18px;line-height: 18px;"></i>
+                </button>
+                <button class="btn btn-white" ng-class="{disabled: vm.noPrevious()}" type="button" ng-click="vm.previousPage()">
+                    <i class="fa fa-chevron-left" style="height: 18px;line-height: 18px;"></i>
+                </button>
+                <button class="btn btn-white" ng-click="vm.refresh()">
+                    <i class="fa fa-refresh" style="height: 18px;line-height: 18px;"></i>
+                </button>
+                <button class="btn btn-white" ng-class="{active: vm.isActive(pageIndex)}" ng-repeat="pageIndex in vm.pages" ng-click="vm.selectPage(pageIndex)">{{pageIndex}}</button>
+                <div class="btn-group btn-group-sm dropup">
+                    <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                        Go!
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <div class="input-group input-group-sm">
+                                <input type="number" class="form-control" ng-model="vm.pageToGo" ng-keypress="vm.goPage()" onclick="event.stopPropagation();">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-primary" ng-click="vm.goPage()">Go!</button>
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <button class="btn btn-white" ng-class="{disabled: vm.noNext()}" type="button" ng-click="vm.nextPage()">
+                    <i class="fa fa-chevron-right" style="height: 18px;line-height: 18px;"></i>
+                </button>
+                <button class="btn btn-white" ng-class="{disabled: vm.isLastPage()}" type="button" ng-click="vm.selectPage(vm.total)">
+                    <i class="fa fa-chevron-right"></i>
+                    <i class="fa fa-chevron-right" style="height: 18px;line-height: 18px;"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

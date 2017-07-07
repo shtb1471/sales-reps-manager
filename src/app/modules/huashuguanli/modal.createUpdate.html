@@ -1,0 +1,67 @@
+<form name="professionEdit" ng-submit="modal.closeModal(professionEdit.$valid)" class="" novalidate>
+    <div class="modal-service-body">
+        <div class="panel panel-default">
+            <div class="panel-heading panel-heading-sm">
+                <h3 class="panel-title">
+                    <strong ng-if="!modal.document.id">话术-新建</strong>
+                    <strong ng-if="modal.document.id">话术-编辑</strong>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <dl class="dl-horizontal col-md-11 dl-middle-alike">
+                        <dt>
+                            问:&nbsp;<span class="text-danger">
+                                <strong>*</strong>
+                            </span>
+                        </dt>
+                        <dd>
+                            <p ng-class="{ 'has-error' : professionEdit.name.$invalid && !professionEdit.name.$pristine}">
+                                <input ng-model="modal.document.name" type="text" name="name" class="form-control" required>
+                                <p ng-show="professionEdit.name.$invalid && !professionEdit.name.$pristine" class="text-danger">问题不能为空</p>
+                            </p>
+                        </dd>
+                        <dt class="docFile">
+                            答:&nbsp;<span class="text-danger">
+                                <strong>*</strong>
+                            </span>
+                        </dt>
+                        <dd>
+                            <p ng-class="{ 'has-error' : professionEdit.content.$invalid && !professionEdit.content.$pristine}">
+                                <textarea name="" ng-model="modal.document.content" rows="8" class="form-control"></textarea>
+                                <input type="hidden" ng-model="modal.document.content" class="form-control" name="content" required>
+                                <p ng-show="professionEdit.content.$invalid && !professionEdit.content.$pristine" class="text-danger">答案不能为空</p>
+                            </p>
+                        </dd>
+
+                        <dt >
+                            适用团队:&nbsp;
+                        </dt>
+                        <dd class="docFile">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <input xx-check type="checkbox" xx-model="modal.isChxp">
+                                    诚信聘
+                                </div>
+                                <div class="col-md-3">
+                                    <input xx-check type="checkbox" xx-model="modal.isGrw">
+                                    工人网
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-md-offset-4">
+                        <button class="btn btn-sm btn-primary" ng-disabled="professionEdit.$invalid" type="submit">
+                            &nbsp;&nbsp;确&nbsp;&nbsp;&nbsp;&nbsp;定&nbsp;&nbsp;</button>
+                        <button class="btn btn-sm btn-default" ng-click="modal.cancel()">
+                            &nbsp;&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

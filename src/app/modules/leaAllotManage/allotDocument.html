@@ -1,0 +1,37 @@
+<form name="professionEdit" ng-submit="modal.closeModal(professionEdit.$valid)" class="" novalidate>
+    <div class="modal-service-body">
+        <div class="panel panel-default sale-pannel">
+            <div class="panel-heading panel-heading-sm">
+                <h3 class="panel-title">
+                  <strong>分配</strong>
+                </h3>
+            </div>
+            <div class="panel-body">
+
+                <div class="row">
+                    <dl class="dl-horizontal col-md-11 dl-middle-alike">
+                        <dt>
+                              销售专员:&nbsp;
+                          </dt>
+                        <dd>
+
+                          <div class="input-group-btn">
+                              <select class="form-control gr-select-bg" ng-model="modal.allot" ng-options="item.id as item.name for item in modal.listDatas"></select>
+                          </div>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-md-offset-3">
+                        <button class="btn btn-sm btn-primary" ng-disabled="professionEdit.$invalid" type="submit">
+                            &nbsp;&nbsp;确&nbsp;&nbsp;&nbsp;&nbsp;定&nbsp;&nbsp;</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-sm btn-default" ng-click="modal.cancel()">
+                            &nbsp;&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

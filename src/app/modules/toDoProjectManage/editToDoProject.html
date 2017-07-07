@@ -1,0 +1,59 @@
+<form name="professionEdit" ng-submit="modal.closeModal(professionEdit.$valid)" class="" novalidate>
+    <div class="modal-service-body">
+        <div class="panel panel-default sale-pannel">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <strong>待办事项</strong>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <dl class="dl-horizontal col-md-10 none-padding dl-middle-alike">
+                        <dt class="docFile">
+                            待办时间:&nbsp;<span class="text-danger">
+                                <strong>*</strong>
+                            </span>
+                        </dt>
+                        <dd>
+                            <p>
+                                <div xx-datepicker date-start="modal.time.date" date-end="" is-range="false" date-title="" placeholder-start="" placeholder-end=""></div>
+                            </p>
+                            <div class="col-md-4 none-padding none-margin-bottom">
+                                <select class="form-control" ng-model="modal.time.hh" ng-options="  item for item in  modal.hhmmss.hh"></select>
+                            </div>
+                            <div class="col-md-4 none-padding none-margin-bottom">
+                                <select class="form-control" ng-model="modal.time.mm" ng-options="item for item in modal.hhmmss.mm"></select>
+                            </div>
+                            <div class="col-md-4 none-padding none-margin-bottom">
+                              <select class="form-control" ng-model="modal.time.ss" ng-options="item for item in modal.hhmmss.ss"></select>
+                            </div>
+                        </dd>
+                      </dl>
+                      <dl class="dl-horizontal col-md-10 none-padding none-margin-bottom dl-middle-alike">
+                        <dt class="specail">
+                            待办事项:&nbsp;<span class="text-danger">
+                                <strong>*</strong>
+                            </span>
+                        </dt>
+                        <dd>
+                            <p ng-class="{ 'has-error' : professionEdit.itme.$invalid && !modal.isvalidate}">
+                                <textarea ng-model="modal.todo.item" rows="4" name="itme" class="form-control" required></textarea>
+                                <p ng-show="professionEdit.itme.$invalid && !modal.isvalidate" class="text-danger">待办事项不能为空!</p>
+                            </p>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-md-offset-3">
+                        <button class="btn btn-sm btn-primary" type="submit">
+                            &nbsp;&nbsp;确&nbsp;&nbsp;&nbsp;&nbsp;定&nbsp;&nbsp;</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-sm btn-default" ng-click="modal.cancel()">
+                            &nbsp;&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

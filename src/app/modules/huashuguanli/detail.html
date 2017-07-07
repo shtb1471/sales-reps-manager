@@ -1,0 +1,50 @@
+
+<div class="wrapper wrapper-content">
+    <div class="ibox c-margin-top">
+        <div class="ibox-content query-box">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="input-group">
+                        <input type="text" class="form-control" ng-model="Detail.query.courseName" placeholder="问题" xx-enter="Detail.queryFn">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" ng-click="Detail.queryFn()" type="button">
+                                <i class="fa fa-search"></i>&nbsp;查&nbsp;询&nbsp;
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="row" style="min-height:600px;">
+                <div class="col-md-10 col-md-offset-1">
+                  <ul class="nav nav-tabs table-tabs">
+                      <li ng-class="{'active':Detail.query.serviceType==0}">
+                          <a ng-click="Detail.tabQuery(0)" data-toggle="tab">全部</a>
+                      </li>
+                      <li ng-class="{'active':Detail.query.serviceType==2}">
+                          <a ng-click="Detail.tabQuery(2)" data-toggle="tab">诚信聘</a>
+                      </li>
+                      <li ng-class="{'active':Detail.query.serviceType==1}">
+                          <a ng-click="Detail.tabQuery(1)" data-toggle="tab">工人网</a>
+                      </li>
+                  </ul>
+                  <p></p>
+                    <p>
+                        共查询到<mark>{{Detail.dData.total}}</mark>条记录
+                    </p>
+                    <div ng-repeat="item in Detail.dData.data">
+                        <p class="text-left">
+                            <h5><strong>问：</strong><span ng-bind-html="item.name"></span>
+                            </h5>
+                        </p>
+                        <p style="padding-left:1em">
+                            <strong>答：</strong>
+                            <span ng-bind-html="item.content" class="answer-content"></span>
+                        </p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

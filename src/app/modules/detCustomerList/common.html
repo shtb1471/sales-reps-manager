@@ -1,0 +1,124 @@
+<div class="row cusDet">
+    <div class="col-ms-3 col-xs-3 col-md-3 col-md-nonepadding">
+        <h4>
+            <i class="fa fa-circle"></i>
+            客户管理
+        </h4>
+    </div>
+    <div class="col-ms-8 col-xs-8 col-md-8">
+        <nav class="navbar lever-nav-bar" role="navigation">
+            <div>
+                <ul id="leverBar" class="nav navbar-nav">
+                    <li ng-class="{'active':$state.current.name=='detCustomer.list.record'}">
+                        <a ui-sref="detCustomer.list.record(Detail.stateInfo)">沟通记录</a>
+                    </li>
+                    <li ng-class="{'active':$state.current.name=='detCustomer.list.contacts'}">
+                        <a ui-sref="detCustomer.list.contacts(Detail.stateInfo)">联系人</a>
+                    </li>
+                    <li ng-class="{'active':$state.current.name=='detCustomer.list.visit'||$state.current.name=='detCustomer.list.visitDetail'}">
+                        <a ui-sref="detCustomer.list.visit(Detail.stateInfo)">拜访记录</a>
+                    </li>
+                    <li ng-class="{'active':$state.current.name=='detCustomer.list.toDoProject'}">
+                        <a ui-sref="detCustomer.list.toDoProject(Detail.stateInfo)">待办事项</a>
+                    </li>
+                    <li ng-class="{'active':$state.current.name=='detCustomer.list.project'}">
+                        <a ui-sref="detCustomer.list.project(Detail.stateInfo)">方案</a>
+                    </li>
+                    <li ng-class="{'active':$state.current.name=='detCustomer.list.bargain'}">
+                        <a ui-sref="detCustomer.list.bargain(Detail.stateInfo)">合同</a>
+                    </li>
+                    <li ng-class="{'active':$state.current.name=='detCustomer.list.huashu'}">
+                        <a ui-sref="detCustomer.list.huashu(Detail.stateInfo)">话术</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="col-ms-1 col-xs-1 col-md-1 pull-right mouseOver" ng-click="Detail.goBackPage()">
+        <strong>×</strong>
+    </div>
+</div>
+<div class="row c-contact-info">
+    <div class="col-ms-3 col-xs-3 col-md-3">
+        <div class="ibox c-margin-top">
+            <div class="ibox-content query-box">
+                <h4 class="c-title">
+                    <strong>{{Detail.listDatas.entCompanyVo.name}}</strong>
+                </h4>
+                <p>
+                    <span class="c-name">{{Detail.listDatas.entCompanyVo.user}}</span>
+                    &nbsp;&nbsp;
+                    <span ng-class="{'c-job':Detail.listDatas.accContactsVo.job}">{{Detail.listDatas.accContactsVo.job}}</span>
+                </p>
+                <p class="clearfix" ng-if="Detail.listDatas.accContactsVo.phone">
+                    <span class="c-contact">{{Detail.listDatas.accContactsVo.phone}}</span>&nbsp;&nbsp;
+                    <span class="c-contact">{{Detail.listDatas.accContactsVo.ext}}</span>
+                    <a class="btn gr-btn-sm btn-primary pull-right" ng-click="Detail.calling(Detail.listDatas.accContactsVo.callPhoneUrl)">打电话</a>
+                </p>
+                <p class="clearfix" ng-if="Detail.listDatas.accContactsVo.mobile">
+                    <span class="c-contact">{{Detail.listDatas.accContactsVo.mobile}}</span>
+                    <a class="btn gr-btn-sm btn-primary pull-right" ng-click="Detail.calling(Detail.listDatas.accContactsVo.callMobileUrl)">打手机</a>
+                </p>
+                <p class="clearfix" ng-if="Detail.listDatas.entCompanyVo.email">
+                    <span class="c-contact">{{Detail.listDatas.entCompanyVo.email}}</span>
+                    <a class="btn gr-btn-sm btn-primary pull-right" href="mailto:{{Detail.listDatas.entCompanyVo.email}}">发邮件</a>
+                </p>
+                <hr/>
+                <div class="c-category">
+                    <ul class="categoryList1 clearfix">
+                        <li ng-repeat="companyTypeList in Detail.sysGencodeList.companyTypeList" ng-class="{'active':Detail.listDatas.companyType==companyTypeList.gencodeValue}" class="col-sm-4 col-xs-4 col-md-4" ng-click="Detail.choiceType(companyTypeList.gencodeValue)">
+                            {{companyTypeList.gencodeName}}</li>
+                    </ul>
+                    <hr ng-if="Detail.listDatas.serviceType!=2"/>
+                    <ul class="categoryList2 clearfix" ng-if="Detail.listDatas.serviceType!=2">
+                        <li ng-repeat="companyTagList in Detail.sysGencodeList.companyTagList" ng-click="Detail.serviceTagChoice(companyTagList.gencodeValue)" class="col-sm-4 col-xs-4 col-md-4" ng-class="{'active':Detail.srvTagIn(companyTagList.gencodeValue)}">{{companyTagList.gencodeName}}</li>
+                    </ul>
+                    <hr ng-if="Detail.companyLevel"/>
+                    <ul class="categoryList3 clearfix" ng-if="Detail.companyLevel">
+                        <li
+                            ng-repeat="companyLevelList in Detail.sysGencodeList.companyLevelList"
+                            class="col-sm-3 col-xs-3 col-md-3"
+                            ng-class="{'active':Detail.listDatas.companyLevel==companyLevelList.gencodeValue}"
+                            ng-click="Detail.choiceLevel(companyLevelList.gencodeValue)">{{companyLevelList.gencodeName}}</li>
+                    </ul>
+                    <hr/>
+                    <div class="gr-company-profile">
+                        <p>
+                            <strong>行业：</strong>
+                            <span>{{Detail.listDatas.entCompanyVo.industryName}}</span>
+                            <label class="green-color" ng-click="Detail.editDocument(Detail.listDatas)">
+                                <img src="assets/images/edit.png"/>
+                            </label>
+                        </p>
+                        <p>
+                            <strong>规模：</strong>
+                            <span>{{Detail.listDatas.entCompanyVo.scaleName}}</span>
+                        </p>
+                        <p>
+                            <strong>性质：</strong>
+                            <span>{{Detail.listDatas.entCompanyVo.propertyName}}</span>
+                        </p>
+                        <p>
+                            <strong>地址：</strong>
+                            <span>{{Detail.listDatas.entCompanyVo.address}}</span>
+                        </p>
+                        <p>
+                            <strong>简介：</strong>
+                            <div>
+                                {{Detail.listDatas.entCompanyVo.shortDesc}}
+                            </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-ms-9 col-xs-9 col-md-9 sale-margin-bottom">
+        <div ui-view></div>
+    </div>
+    <div class="col-ms-12 col-xs-12 col-md-12 pull-right sale-footer-fixed">
+        <button ng-show="Detail.listDatas.entCompanyVo.isNullPhone!==0"  class="btn btn-sm btn-primary pull-right gr-btn-margin-right" ng-click="Detail.setEmpty()">设为空号</button>
+        <button ng-show="Detail.listDatas.entCompanyVo.isNullPhone===0" class="btn btn-sm btn-default pull-right gr-btn-margin-right" disabled="disabled">空号</button>
+    </div>
+</div>

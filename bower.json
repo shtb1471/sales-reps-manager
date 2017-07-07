@@ -1,0 +1,78 @@
+{
+  "name": "gongrenOps",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular-animate": "~1.5.8",
+    "angular-cookies": "~1.5.8",
+    "angular-sanitize": "~1.5.8",
+    "angular-messages": "~1.5.8",
+    "angular-aria": "~1.5.8",
+    "jquery": "~2.1.4",
+    "angular-resource": "~1.5.8",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap-sass": "~3.3.6",
+    "angular-bootstrap": "~0.14.3",
+    "moment": "~2.14.1",
+    "animate.css": "~3.5.2",
+    "angular": "~1.5.8",
+    "angular-notify": "^2.5.0",
+    "ng-sweet-alert": "^1.0.5",
+    "angular-block-ui": "^0.2.2",
+    "angular-modal-service": "^0.10.1",
+    "bootstrap-datepicker": "^1.6.1",
+    "angular-md5": "^0.1.10",
+    "jquery-colorbox": "^1.6.4",
+    "font-awesome": "^4.6.3",
+    "iCheck": "icheck#^1.0.2",
+    "angular-file-upload": "^2.3.4"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.5.8"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": [
+        "assets/stylesheets/_bootstrap.scss",
+        "assets/javascripts/bootstrap.js",
+        "assets/fonts/bootstrap/glyphicons-halflings-regular.eot",
+        "assets/fonts/bootstrap/glyphicons-halflings-regular.svg",
+        "assets/fonts/bootstrap/glyphicons-halflings-regular.ttf",
+        "assets/fonts/bootstrap/glyphicons-halflings-regular.woff",
+        "assets/fonts/bootstrap/glyphicons-halflings-regular.woff2"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "scss/font-awesome.scss",
+        "fonts/FontAwesome.otf",
+        "fonts/fontawesome-webfont.eot",
+        "fonts/fontawesome-webfont.svg",
+        "fonts/fontawesome-webfont.ttf",
+        "fonts/fontawesome-webfont.woff",
+        "fonts/fontawesome-webfont.woff2"
+      ]
+    },
+    "bootstrap-datepicker": {
+      "main": [
+        "dist/css/bootstrap-datepicker3.css",
+        "dist/js/bootstrap-datepicker.js",
+        "js/locales/bootstrap-datepicker.zh-CN.js"
+      ]
+    },
+    "iCheck": {
+      "main": [
+        "icheck.js",
+        "skins/minimal/_all.css",
+        "skins/square/_all.css",
+        "skins/flat/_all.css",
+        "skins/line/_all.css",
+        "skins/polaris/polaris.css",
+        "skins/futurico/futurico.css"
+      ]
+    }
+  },
+  "resolutions": {
+    "jquery": "~2.1.4",
+    "angular": "~1.5.8"
+  }
+}

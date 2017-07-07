@@ -1,0 +1,57 @@
+<div class="row">
+    <h4>
+        <strong>
+            &nbsp;&nbsp;
+            <i class="fa fa-home"></i>
+        </strong>主页 / 沟通记录 / 详情
+    </h4>
+</div>
+<div class="main-content">
+    <div class="well">
+        <div class="ibox">
+            <div class="ibox-content query-box">
+                <div class="row">
+                    <dl class="dl-horizontal col-md-8 none-padding none-margin-bottom">
+                        <dt>
+                        沟通内容:
+                      </dt>
+                        <dd>
+                            <p>
+                                {{Detail.detailData.missTypeName || '&nbsp' }}
+                            </p>
+                        </dd>
+                        <dt>
+                            客户名称:
+                        </dt>
+                        <dd>
+                            <p>
+                                {{Detail.detailData.opsCompany.userName || '&nbsp' }}
+                            </p>
+                        </dd>
+                        <dt>
+                            联系人:
+                        </dt>
+                        <dd>
+                            <p>
+                                {{Detail.detailData.opsCompany.userLinkEmail || '&nbsp' }}
+                            </p>
+                        </dd>
+                        <dt>
+                            沟通时间:
+                        </dt>
+                        <dd>
+                            <p>
+                                {{Detail.detailData.opsCompany.userLinkEmail || '&nbsp' }}
+                            </p>
+                        </dd>
+                    </dl>
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-1 col-md-8">
+            <button class="btn btn-success" ui-sref="sourCustomer.list" type="button" name="button">&nbsp;&nbsp;返&nbsp;&nbsp;&nbsp;&nbsp;回&nbsp;&nbsp;</button>
+        </div>
+    </div>
+</div>

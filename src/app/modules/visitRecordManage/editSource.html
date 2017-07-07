@@ -1,0 +1,118 @@
+<form name="professionEdit" ng-submit="modal.closeModal(professionEdit.$valid)" class="" novalidate>
+    <div class="modal-service-body">
+        <div class="panel panel-default">
+            <div class="panel-heading panel-heading-sm">
+                <h3 class="panel-title">
+                    <strong>拜访信息记录</strong>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <dl class="dl-horizontal col-md-5 none-padding none-margin-bottom dt-text-align dl-middle-alike">
+                        <dt>
+                            拜访企业:&nbsp;<span class="text-danger">
+                                <strong>*</strong>
+                            </span>
+                        </dt>
+                        <dd>
+                            <p>
+                                <input ng-model="modal.visitRecords.company" type="text" name="company" class="form-control" value="测试企业地址" disabled="disabled">
+                            </p>
+                        </dd>
+                        <dt>
+                            拜访人:&nbsp;<span class="text-danger">
+                                <strong>*</strong>
+                            </span>
+                        </dt>
+                        <dd>
+                            <p ng-class="{ 'has-error' : professionEdit.userName.$invalid && !modal.isvalidate}">
+                                <input ng-model="modal.visitRecords.userName" type="text" name="userName" class="form-control" required>
+                                <p ng-show="professionEdit.userName.$invalid && !modal.isvalidate" class="text-danger">拜访人不能为空</p>
+                            </p>
+                        </dd>
+                    </dl>
+                    <dl class="dl-horizontal col-md-6 none-padding none-margin-bottom dl-middle-alike">
+                        <dt>
+                            拜访日期:&nbsp;
+                            <span class="text-danger">
+                                <strong>*</strong>
+                            </span>
+                        </dt>
+                        <dd>
+                            <p ng-class="{ 'has-error' : professionEdit.visitDate.$invalid && !modal.isvalidate}">
+                                <span xx-datepicker date-start="modal.visitRecords.visitDate" date-end="modal.visitRecords.endDate" is-range="false" style="text-align:left;"></span>
+                            </p>
+                            <p ng-show="professionEdit.visitDate.$invalid && !modal.isvalidate" class="text-danger">请填拜访日期！</p>
+                        </dd>
+                        <dt>
+                            随访人:&nbsp;
+                        </dt>
+                        <dd>
+                            <p>
+                                <input ng-model="modal.visitRecords.followUser" type="text" name="followUser" class="form-control">
+                            </p>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="row">
+                    <dl class="dl-horizontal col-md-11 none-padding none-margin-bottom dt-text-align dl-middle-alike">
+                        <dt>
+                            联系电话:&nbsp;<span class="text-danger">
+                                <strong>*</strong>
+                            </span>
+                        </dt>
+                        <dd>
+                            <p ng-class="{ 'has-error' : professionEdit.mobile.$invalid && !modal.isvalidate}">
+                                <input ng-model="modal.visitRecords.mobile" type="text" ng-pattern="/^\d+$/" name="mobile" class="form-control input-inline" required/>
+                                <strong class="contact-icon" ng-click="modal.selectOut()">
+                                    <i class="fa fa-2x fa-plus-circle"></i>
+                                </strong>
+                                <select ng-change="modal.contactsChange(modal.user)" ng-if="modal.xxxxxx" class="form-control input-inline" ng-model="modal.user" ng-options="item as item.user for item in modal.userLists"></select>
+                            </p>
+                            <p ng-show="professionEdit.mobile.$invalid && !modal.isvalidate" class="text-danger">请填写联系电话！</p>
+
+                        </dd>
+                        <dt class="specail">
+                            沟通记录:&nbsp;
+                            <span class="text-danger">
+                                <strong>*</strong>
+                            </span>
+                        </dt>
+                        <dd>
+                            <p ng-class="{ 'has-error' : professionEdit.linkContent.$invalid && !modal.isvalidate}">
+                                <textarea ng-model="modal.visitRecords.linkContent" rows="4" name="record" class="form-control" required></textarea>
+                            </p>
+                            <p ng-show="professionEdit.linkContent.$invalid && !modal.isvalidate" class="text-danger">请填写沟通记录！</p>
+                        </dd>
+                        <dt class="specail">
+                            客户意向:&nbsp;
+                        </dt>
+                        <dd>
+                            <p>
+                                <textarea ng-model="modal.visitRecords.intentContent" rows="4" name="intentContent" class="form-control"></textarea>
+                            </p>
+                        </dd>
+                        <dt class="specail">
+                            待解决问题:&nbsp;
+                        </dt>
+                        <dd>
+                            <p>
+                                <textarea ng-model="modal.visitRecords.questionContent" rows="4" name="questionContent" class="form-control"></textarea>
+                            </p>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-md-offset-4">
+                        <button class="btn btn-sm btn-primary" type="submit">
+                            &nbsp;&nbsp;确&nbsp;&nbsp;&nbsp;&nbsp;定&nbsp;&nbsp;</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-sm btn-default" ng-click="modal.cancel()">
+                            &nbsp;&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

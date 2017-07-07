@@ -1,0 +1,103 @@
+<!doctype html>
+<html ng-app="gongrenOps">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Page title set in pageTitle directive -->
+        <title page-title>工人网运营系统</title>
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
+        <!-- bower:css -->
+        <!-- run `gulp inject` to automatically populate bower styles dependencies -->
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:css({.tmp/serve,src}) styles/app.css -->
+        <!-- inject:css -->
+        <!-- css files will be automatically insert here -->
+        <!-- endinject -->
+        <!-- endbuild -->
+
+        <style>
+            .ng-cloak,
+            .x-ng-cloak,
+            [data-ng-cloak],
+            [ng-cloak],
+            [ng:cloak],
+            [x-ng-cloak] {
+                display: none !important;
+            }
+
+        </style>
+
+    </head>
+    <body class="ng-cloak" ng-controller="MainController as main">
+        <!--[if lt IE 10]> <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p> <![endif]-->
+        <div id="wrapper">
+            <nav ng-controller="leftMenuController as left" class="navbar-default navbar-static-side" role="navigation" ng-show="$state.current.name.indexOf('detCustomer')==-1">
+                <div class="sidebar-collapse">
+                    <ul side-navigation class="nav" id="side-menu">
+                        <li class="nav-header">
+                            <div class="dropdown profile-element">
+                                <span class="clear">
+                                    <span class="block m-t-xs" style="font-size: 16px;color: #209B82;">
+                                        <strong class="font-bold">
+                                            {{userInfo.name}}
+                                        </strong>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="logo-element">
+                                MC
+                            </div>
+                        </li>
+                        <li ng-repeat="level1 in left.lm.result" ng-class="{active: true}" >
+                            <a aria-expanded="{{level1.status}}" ng-href="{{level1.url}}" >
+                                <i class="fa fa-th-large"></i>
+                                <span class="nav-label sidebar-nav-item">{{level1.name}}
+                                </span>
+                                <span class="fa arrow" ng-class="{'gr-arrow-left':!level1.status}"></span>
+                            </a>
+                            <!--第二层ul  -->
+                            <ul aria-expanded="{{level1.status}}" xx-slied="level1.status" class="nav nav-second-level collapse" ng-class="{in:level1.status}">
+                                <li ng-repeat="level2 in level1.children" class="cxTree3" ng-class="{active: true}">
+                                    <a aria-expanded="{{level2.status}}" ng-click="level2.status=left.turnStatus(level2.status)">
+                                        <i class="fa fa-plus-square"></i>
+                                        <span class="nav-label sidebar-nav-item">{{level2.name}}</span>
+                                        <span class="fa arrow3" ng-class="{'gr-arrow-left':!level2.status}"></span>
+                                    </a>
+                                    <!-- 第三层ul -->
+                                    <ul aria-expanded="{{level2.status}}" class="nav nav-second-level nav-thrid-level collapse" style="height: 0px;" ng-class="{in: level2.status}">
+                                        <li ng-repeat="level3 in level2.children" ui-sref-active="active">
+                                            <a ui-sref="{{level3.href}}">{{level3.name}}</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div ui-view></div>
+        </div>
+
+        <!-- build:js(src) scripts/vendor.js -->
+        <!-- bower:js -->
+        <!-- run `gulp inject` to automatically populate bower script dependencies -->
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
+        <!-- inject:js -->
+        <!-- js files will be automatically insert here -->
+        <!-- endinject -->
+
+        <!-- inject:partials -->
+        <!-- angular templates will be automatically converted in js and inserted here -->
+        <!-- endinject -->
+        <!-- endbuild -->
+    </body>
+</html>

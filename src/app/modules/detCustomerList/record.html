@@ -1,0 +1,32 @@
+<div class="ibox c-margin-top">
+    <div class="ibox-content query-box">
+        <div class="row">
+            <div class="col-lg-10 col-md-10 col-md-nonepadding">
+                <div class="input-group">
+                    <div class="input-group-btn input-group-big">
+                        <select class="form-control gr-select-bg" ng-model="Detail.user" ng-options="item as item.user for item in Detail.userLists"></select>
+                    </div>
+                    <input type="text" class="form-control" ng-model="Detail.newMsg" xx-enter="Detail.sendMsg" id="messageBox" placeholder="">
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2">
+                <button class="btn btn-sm btn-primary" ng-click="Detail.sendMsg()">发&nbsp;送（Enter）</button>
+            </div>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-md-11 col-ms-11 col-xs-11 c-contact-detail">
+                <div class="form-group" ng-repeat="item in Detail.user.logList track by $index">
+                    <p>
+                        <span class="c-contact-title">
+                            <span ng-if="Detail.user.job">{{Detail.user.job}}-</span>
+                            {{Detail.user.user}}
+                        </span>
+                        <span class="c-contact-time">{{item.createDate}}</span>
+                    </p>
+                    <div>{{item.content}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

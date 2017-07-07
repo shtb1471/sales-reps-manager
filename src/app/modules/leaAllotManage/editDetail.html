@@ -1,0 +1,173 @@
+<form name="professionEdit" ng-submit="modal.closeModal(professionEdit.$valid)" class="" novalidate >
+    <div class="modal-service-body">
+        <div class="panel panel-default">
+            <div class="panel-heading panel-heading-sm">
+                <h3 class="panel-title">
+                    <strong>编辑</strong>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <dl class="dl-horizontal col-md-6 none-padding none-margin-bottom dl-middle-alike">
+                        <dt>
+                            公司名称:&nbsp;<span class="text-danger">
+                                <strong>*</strong>
+                            </span>
+                        </dt>
+                        <dd>
+                            <p ng-class="{ 'has-error':professionEdit.name.$invalid && !modal.isvalidate}">
+                                <input ng-model="modal.info.name" type="text" name="name" class="form-control" required>
+                                <p ng-show="professionEdit.name.$invalid && !modal.isvalidate" class="text-danger">公司名称不能为空</p>
+                            </p>
+                        </dd>
+                        <dt>
+                            公司规模:&nbsp;
+                        </dt>
+                        <dd>
+                            <p>
+                                <select class="form-control gr-select-bg" ng-model="modal.info.scale" ng-options="item.gencodeValue as item.gencodeName for item in modal.sysGencodeList.scaleList"></select>
+                            </p>
+                        </dd>
+                        <dt>
+                            联系人:&nbsp;<span class="text-danger">
+                                <strong>*</strong>
+                            </span>
+                        </dt>
+                        <dd>
+                            <p ng-class="{ 'has-error' : professionEdit.user.$invalid && !modal.isvalidate}">
+                                <input ng-model="modal.info.user" type="text" name="user" class="form-control" required>
+                                <p ng-show="professionEdit.user.$invalid && !modal.isvalidate" class="text-danger">联系人不能为空</p>
+                            </p>
+                        </dd>
+                        <dt>
+                            职位:&nbsp;
+                        </dt>
+                        <dd>
+                            <p>
+                                <input ng-model="modal.info.job" type="text" name="job" class="form-control" />
+                            </p>
+                        </dd>
+                        <dt>
+                            邮箱:&nbsp;
+                        </dt>
+                        <dd>
+                            <p>
+                                <input ng-model="modal.info.email" type="text" ng-pattern="/^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/" name="email" class="form-control">
+                            </p>
+                        </dd>
+                        <dt>
+                            微信:&nbsp;
+                        </dt>
+                        <dd>
+                            <p>
+                                <input ng-model="modal.info.weixin" type="text" name="weixin" class="form-control" >
+                            </p>
+                        </dd>
+                    </dl>
+                    <dl class="dl-horizontal col-md-6 none-padding none-margin-bottom dl-middle-alike">
+                        <dt>
+                            公司行业:&nbsp;
+                        </dt>
+                        <dd>
+                            <p>
+                                <select class="form-control gr-select-bg" ng-model="modal.info.industry" ng-options="item.gencodeValue as item.gencodeName for item in modal.sysGencodeList.industryList"></select>
+                            </p>
+                        </dd>
+                        <dt>
+                            公司性质:&nbsp;
+                        </dt>
+                        <dd>
+                            <p >
+                                <select class="form-control gr-select-bg" ng-model="modal.info.property" ng-options="item.gencodeValue as item.gencodeName for item in modal.sysGencodeList.propertyList"></select>
+                            </p>
+                        </dd>
+                        <dt>
+                            手机:&nbsp;<span class="text-danger" ng-if="!modal.info.phone">
+                                <strong>*</strong>
+                            </span>
+                        </dt>
+                        <dd ng-if="!modal.info.phone">
+                            <p ng-class="{ 'has-error' : professionEdit.mobile.$invalid && !modal.isvalidate}">
+                                <input ng-model="modal.info.mobile" type="text" ng-pattern="/^1[3|5|7|8|][0-9]{9}$/" name="mobile" class="form-control" required/>
+                            </p>
+                            <p ng-show="professionEdit.mobile.$invalid && !modal.isvalidate" class="text-danger">手机格式有误！</p>
+                        </dd>
+                        <dd ng-if="modal.info.phone">
+                            <p>
+                                <input ng-model="modal.info.mobile" type="text" ng-pattern="/^1[3|5|7|8|][0-9]{9}$/" name="mobile" class="form-control"/>
+                            </p>
+                        </dd>
+                        <dt>
+                            电话:&nbsp;<span class="text-danger" ng-if="!modal.info.mobile">
+                                <strong>*</strong>
+                            </span>
+                        </dt>
+                        <dd ng-if="!modal.info.mobile">
+                            <p class="col-md-8 none-padding" ng-class="{ 'has-error' : professionEdit.phone.$invalid && !modal.isvalidate}">
+                                <input ng-model="modal.info.phone" type="text" ng-pattern="/^\d+$/" name="phone" class="form-control" required/>
+                            </p>
+                            <p class="col-md-3 none-padding col-md-offset-1">
+                                <input ng-model="modal.info.ext" type="text" ng-pattern="/^\d+$/" name="ext" class="form-control"/>
+                            </p>
+                            <p ng-show="professionEdit.phone.$invalid && !modal.isvalidate" class="text-danger">电话格式有误！</p>
+                        </dd>
+                        <dd ng-if="modal.info.mobile">
+                            <p class="col-md-8 none-padding">
+                                <input ng-model="modal.info.phone" type="text" ng-pattern="/^\d+$/" name="phone" class="form-control"/>
+                            </p>
+                            <p class="col-md-3 none-padding col-md-offset-1">
+                                <input ng-model="modal.info.ext" type="text" ng-pattern="/^\d+$/" name="ext" class="form-control"/>
+                            </p>
+                        </dd>
+                        <dt>
+                            Q&nbsp;Q:&nbsp;
+                        </dt>
+                        <dd>
+                            <p>
+                                <input ng-model="modal.info.qq" type="text" name="qq" class="form-control" >
+                            </p>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="row">
+                    <dl class="dl-horizontal col-md-11 none-padding none-margin-bottom dl-middle-alike">
+                        <dt>
+                            公司地址:&nbsp;
+                        </dt>
+                        <dd>
+                            <p>
+                                <input ng-model="modal.info.address" type="text" name="address" class="form-control" />
+                            </p>
+                        </dd>
+                        <dt>
+                            公司网址:&nbsp;
+                        </dt>
+                        <dd>
+                            <p>
+                                <input ng-model="modal.info.companyWebsite" type="text" name="website" class="form-control" />
+                            </p>
+                        </dd>
+                        <dt class="specail">
+                            公司介绍:&nbsp;
+                        </dt>
+                        <dd>
+                            <p>
+                                <textarea ng-model="modal.info.shortDesc" rows="4" name="profile" class="form-control"></textarea>
+                            </p>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-md-offset-4">
+                        <button class="btn btn-sm btn-primary" type="submit">
+                            &nbsp;&nbsp;确&nbsp;&nbsp;&nbsp;&nbsp;定&nbsp;&nbsp;</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-sm btn-default" ng-click="modal.cancel()">
+                            &nbsp;&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,57 @@
+<div id="page-wrapper" class="gray-bg">
+    <!-- Page wrapper -->
+    <div class="row border-bottom">
+        <nav class="navbar navbar-static-top" role="navigation">
+            <div class="navbar-header">
+                <span minimaliza-sidebar></span>
+            </div>
+            <ul class="nav navbar-top-links navbar-right">
+                <li>
+                    <span class="m-r-sm text-muted welcome-message">欢迎使用工人网运营平台</span>
+                </li>
+                <li>
+                    <a href="javascript:history.back();">
+                        <i class="fa fa-arrow-left"></i>返回
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle count-info" href="javascript:void(0)" ng-switch="todocount">
+                        <i class="fa fa-bell"></i>
+                        <span class="label label-danger" ng-switch-when="0"></span>
+                        <span class="label label-danger" ng-switch-default>{{todocount}}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li ng-click="toMyTodoList()">
+                            <a ui-sref="inbox">
+                                <div>
+                                    <i class="fa fa-calendar"></i>
+                                    您有
+                                    {{todocount}}
+                                    个待办需要处理
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a sweetalert sweet-options="{title: '退出',text: '点击确定退出系统',type: 'warning',showCancelButton: true, confirmButtonText: '确定',cancelButtonText: '取消'}" sweet-on-confirm="main.confirmExit()">
+                        <i class="fa fa-power-off"></i>退出
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main view  -->
+    <div ui-view></div>
+    <!-- Footer -->
+    <div class="footer">
+        <div class="pull-right">
+            工人网运营系统
+        </div>
+        <div>
+            &copy; 上海诚信互通网络信息科技有限公司
+            <small>2015&nbsp;-&nbsp;2025</small>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<form name="professionEdit" ng-submit="modal.closeModal(professionEdit.$valid)" class="" novalidate>
+    <div class="modal-service-body">
+        <div class="panel panel-default sale-pannel">
+            <div class="panel-heading panel-heading-sm">
+                <h3 class="panel-title">
+                    <strong>导入资源</strong>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <dl class="dl-horizontal col-md-12 none-padding none-margin-bottom dl-middle-alike">
+                        <div class="col-md-3 none-margin-bottom">
+                            <p class="docFile">
+                                导入资源:&nbsp;
+                                <span class="text-danger">
+                                    <strong>*</strong>
+                                </span>
+                            </div>
+                            <div class="col-md-8 none-margin-bottom">
+                                <div xx-import xx-import-status="showStatus"></div>
+                            </div>
+                        </dl>
+                    </div>
+                    <div>
+                        <a class="text-danger" href="http://s.chengxinhutong.com/dds/img/gongren/idcard/598799/s762495574523121664.xlsx">*&nbsp;客户资源模板下载</a>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8 col-md-offset-4">
+                            <button class="btn btn-sm btn-default" ng-click="modal.cancel()">
+                                &nbsp;&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;&nbsp;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>

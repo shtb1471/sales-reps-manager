@@ -1,0 +1,7 @@
+<div class="row">
+    <input type="file" nv-file-select nv-file-over uploader="uploader" class="form-control" ng-show="!option.uploading"/>
+    <p>&nbsp;</p>
+    <div class="row text-center" ng-repeat="item in uploader.queue">
+        <button class="btn btn-primary" ng-click="item.upload()">点击导入资源{{item.file.name}}</button>
+    </div>
+</div>

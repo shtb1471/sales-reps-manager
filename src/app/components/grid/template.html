@@ -1,0 +1,41 @@
+<form class="form-inline gr-form-table ibox-content">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th class="table-first-coloum" ng-if="List._canSelect">
+                    <span>
+                        <input xx-check type="checkbox" ng-model="List._checkedAll" xx-model="List._checkedAll" ng-change="List.selectAllRow()">
+                    </span>
+                </th>
+                <th class="table-index-coloum">#</th>
+                <th ng-repeat="hitem in List.colsDefined">{{hitem.name}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-if="!List.dataSrv.listDatas.data.length">
+                <td colspan="100">
+                    <div class="grid-nodata">
+                        <h2>没有符合条件的数据</h2>
+                    </div>
+                </td>
+            </tr>
+            <tr ng-repeat="row in List.dataSrv.listDatas.data track by $index" ng-click="List.rowSelect(row,$event)" ng-class="{warning: row._checked}">
+                <td class="table-first-coloum" ng-if="List._canSelect">
+                    <span class="grid-opt-btn">
+                        <input class="grid-opt-btn" xx-check type="checkbox" ng-model="row._checked" xx-model="row._checked">
+                    </span>
+                </td>
+                <td class="table-index-coloum">
+                    {{$index+1}}
+                </td>
+                <td ng-repeat="hitem in List.colsDefined track by $index" ng-class="{'grid-opt-btn':!hitem.field }">
+                    <span ng-if="!hitem.cellTemplate">
+                        {{row[hitem.field]}}
+                    </span>
+                    <xx-grid-cell class="grid-opt-btn" ng-if="hitem.cellTemplate"></xx-grid-cell>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div page="List.currentPage" total="List.dataSrv.listDatas.totalpage" total-records="List.dataSrv.listDatas.total" on-page-change="List.queryFn" entity-unit="{{List.dataSrv.entity.entityUnit}}" entity-name="{{List.dataSrv.entity.entityName}}" gr-pagination></div>
+</form>

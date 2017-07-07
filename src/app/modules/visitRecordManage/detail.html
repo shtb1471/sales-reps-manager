@@ -1,0 +1,96 @@
+<div class="row">
+    <h4>
+        <!-- <strong>
+            &nbsp;&nbsp;
+            <i class="fa fa-home"></i>
+        </strong>主页 / 拜访记录 / 详情 -->
+    </h4>
+</div>
+<div class="main-content">
+    <div class="well">
+        <div class="ibox">
+            <div class="ibox-content query-box">
+                <div class="row">
+                    <dl class="dl-horizontal col-md-4 none-padding none-margin-bottom">
+                        <dt>
+                      拜访企业:
+                    </dt>
+                        <dd>
+                            <p>
+                                {{Detail.detailData.companyName || '&nbsp' }}
+                            </p>
+                        </dd>
+                        <dt>
+                          拜访人:
+                      </dt>
+                        <dd>
+                            <p>
+                                {{Detail.detailData.userName || '&nbsp' }}
+                            </p>
+                        </dd>
+                        <dt>
+                          随访人:
+                      </dt>
+                        <dd>
+                            <p>
+                                {{Detail.detailData.followUser || '&nbsp' }}
+                            </p>
+                        </dd>
+                    </dl>
+
+                    <dl class="dl-horizontal col-md-4 none-padding none-margin-bottom">
+                        <dt>
+                          访问日期:
+                      </dt>
+                        <dd>
+                            <p>
+                                {{Detail.detailData.createDate || '&nbsp' }}
+                            </p>
+                        </dd>
+                        <dt>
+                          联系电话:
+                      </dt>
+                        <dd>
+                            <p>
+                                {{Detail.detailData.mobile || '&nbsp' }}
+                            </p>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="row">
+                    <dl class="dl-horizontal col-md-4 none-padding">
+                        <dt>
+                            沟通记录:
+                        </dt>
+                        <dd>
+                            <p>
+                                {{Detail.detailData.linkContent || '&nbsp' }}
+                            </p>
+                        </dd>
+                        <dt>
+                            客户意向:
+                        </dt>
+                        <dd>
+                            <p>
+                                {{Detail.detailData.intentContent || '&nbsp' }}
+                            </p>
+                        </dd>
+                        <dt>
+                            待解决问题:
+                        </dt>
+                        <dd>
+                            <p>
+                                {{Detail.detailData.questionContent || '&nbsp' }}
+                            </p>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-1 col-md-8">
+            <a class="btn btn-success" href="javascript:history.back();" >&nbsp;&nbsp;返&nbsp;&nbsp;&nbsp;&nbsp;回&nbsp;&nbsp;</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<form name="professionEdit" ng-submit="modal.closeModal(professionEdit.$valid)" class="" novalidate>
+    <div class="modal-service-body">
+        <div class="panel panel-default sale-pannel">
+            <div class="panel-heading panel-heading-sm">
+                <h3 class="panel-title">
+                    <strong>方案管理-新建</strong>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <dl class="dl-horizontal col-md-11 dl-middle-alike">
+                        <dt>
+                            方案名称:&nbsp;<span class="text-danger">
+                                <strong>*</strong>
+                            </span>
+                        </dt>
+                        <dd>
+                            <p ng-class="{ 'has-error' : professionEdit.fileName.$invalid && !modal.isvalidate}">
+                                <input ng-model="modal.document.fileName" type="text" name="fileName" class="form-control" required>
+                                <p ng-show="professionEdit.fileName.$invalid && !modal.isvalidate" class="text-danger">方案名称不能为空</p>
+                            </p>
+                        </dd>
+                        <dt class="docFile">
+                            文件:&nbsp;<span class="text-danger">
+                                <strong>*</strong>
+                            </span>
+                        </dt>
+                        <dd>
+                            <p ng-class="{ 'has-error' : professionEdit.fileUrl.$invalid && !modal.isvalidate}">
+                                <div xx-upload xx-file-url="modal.document.fileUrl" xx-file-name="modal.document1fileName"></div>
+                                <input type="hidden" ng-model="modal.document.fileUrl" class="form-control" name="fileUrl" required>
+                                <p ng-show="professionEdit.fileUrl.$invalid && !modal.isvalidate" class="text-danger">请选择文件上传</p>
+                            </p>
+                        </dd>
+                        <dt class="specail">
+                            备注:&nbsp;
+                        </dt>
+                        <dd>
+                            <p>
+                                <textarea ng-model="modal.document.remark" rows="4" name="remark" class="form-control"></textarea>
+                            </p>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-md-offset-4">
+                        <button class="btn btn-sm btn-primary" type="submit">
+                            &nbsp;&nbsp;确&nbsp;&nbsp;&nbsp;&nbsp;定&nbsp;&nbsp;</button>
+                        <button class="btn btn-sm btn-default" ng-click="modal.cancel()">
+                            &nbsp;&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
